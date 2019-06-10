@@ -30,7 +30,6 @@ def main():
     else:
         mc_server = MinecraftServer.lookup(MC_SERVER_HOST + ":" + str(MC_SERVER_PORT))
         query = mc_server.query()
-        print(query.players.max)
 
     return template.render(hostname=EXTERNAL_HOSTNAME, online=server_online, query=query)
 
