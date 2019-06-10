@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Server Status</title>
+    </head>
+    <body>
+        <h1>{{ hostname }}</h1>
+        {% if online %}
+            <h2 style="color:#32CD32">Server Online</h2>
+            <p style="margin-bottom:0">{{ query.players.online }}/{{ query.players.max}} Players Online</p>
+            {% if query.players.online > 0 %}
+                <ul style="margin-top:0">
+                {% for player in query.players.names %}
+                    <li>{{ player }}</li>
+                {% endfor %}
+                </ul>
+            {% endif %}
+        {% else %}
+            <h2 style="color:#DC143C">Server Offline<h2>
+        {% endif %}
+    </body>
+</html>
